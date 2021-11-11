@@ -4,6 +4,7 @@ const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j'];
 const recordButton = document.querySelector('.record-button');
 const playButton = document.querySelector('.play-button');
 const saveButton = document.querySelector('.save-button');
+const songLink = document.querySelector('.song-link');
 const keys = document.querySelectorAll('.key')
 const whiteKeys = document.querySelectorAll('.key.white');
 const blackKeys = document.querySelectorAll('.key.black');
@@ -90,6 +91,7 @@ function recordNote(note) {
 function saveSong() {
   axios.post('/songs', { songNotes: songNotes })
     .then(res => {
-      console.log(res.data);
+      songLink.classList.add('show');
+      songLink.href = `/songs/${res.data._id}`;
     });
 }
