@@ -79,3 +79,13 @@ body {
 .btn:focus {
   background-color: hsl(var(--hue), var(--saturation), 30%);
 }
+
+.play-button,
+.save-button {
+  display: none;
+}
+
+.play-button.show,
+.save-button.show {
+  display: block;
+}
