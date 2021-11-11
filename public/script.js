@@ -15,14 +15,20 @@ const keyMap = [ ...keys].reduce((map, key) => {
 }, {});
 
 let recordingStartTime;
-let songNotes;
+let songNotes = currentSong && currentSong.notes;
 
 keys.forEach(key => {
   key.addEventListener('click', () => playNote(key));
 });
 
-recordButton.addEventListener('click', toggleRecording);
-saveButton.addEventListener('click', saveSong);
+if (recordButton) {
+  recordButton.addEventListener('click', toggleRecording);
+}
+
+if (saveButton) {
+  saveButton.addEventListener('click', saveSong);
+}
+
 playButton.addEventListener('click', playSong);
 
 document.addEventListener('keydown', e => {
